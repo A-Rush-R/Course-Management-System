@@ -33,3 +33,6 @@ string convertTo12Hour(int hour24) {
     return to_string(hour12) + " " + period;
 }
 
+void printDelimter() {
+    cout << string(70, '-') << endl;
+}
