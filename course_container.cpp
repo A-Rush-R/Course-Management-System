@@ -38,7 +38,7 @@ void CourseContainer::listCourses() const {
         cout << left
                   << setw(30) << course.getName()
                   << setw(20) << (to_string(course.getMinCredits()) + "-" + to_string(course.getMaxCredits()))
-                  << setw(20) << (to_string(course.getStartTime()) + "-" + to_string(course.getEndTime()))
+                  << setw(20) << (convertTo12Hour(course.getStartTime()) + "-" + convertTo12Hour(course.getEndTime()))
                   << endl;
     }
 

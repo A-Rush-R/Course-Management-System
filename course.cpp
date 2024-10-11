@@ -31,8 +31,8 @@ Course::CourseBuilder& Course::CourseBuilder::WithEndTime(int time){
 Course Course::CourseBuilder::build() const {
 
     try {
-        checkGreaterThanZero(startTime, "Start Time");
-        checkGreaterThanZero(endTime, "End Time");
+        checkTimeValidity(startTime, "Start Time");
+        checkTimeValidity(endTime, "End Time");
         checkGreaterThanZero(minCredits, "Minimum Credits");
         checkGreaterThanZero(maxCredits, "Maximum Credits");
 
