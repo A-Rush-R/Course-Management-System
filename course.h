@@ -14,6 +14,9 @@ public:
     int getMaxCredits() const { return maxCredits; }
     int getStartTime() const { return startTime; }
     int getEndTime() const { return endTime; }
+    Course(string n, int start, int end, int maxC, int minC) 
+        : name(n), startTime(start), endTime(end), maxCredits(maxC), minCredits(minC) {
+    }
 
 private:
     string name;
@@ -35,7 +38,11 @@ public:
     Course build() const;
 
 private:
-	Course thisCourse;
+    string name = "";
+	int startTime = 0;
+	int endTime = 0;
+    int maxCredits = 0;
+	int minCredits = 0;
 };
 
 #endif
