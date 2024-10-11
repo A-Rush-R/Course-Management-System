@@ -1,17 +1,12 @@
-#include <iostream>
-#include "utils.h"
+#ifndef UTILS_H
+#define UTILS_H
 
-int main() {
-    double credits = -5.0;
-    double age = 0;
+#include <stdexcept>
+#include <string>
 
-    try {
-        checkGreaterThanZero(credits, "Credits");
-        checkGreaterThanZero(age, "Age");
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
+void checkGreaterThanZero(double value, const std::string& name);
+void checkNotEmpty(const std::string str, const std::string& name);
+void checkGreaterThan(int big,int small, const std::string& bigName, const std::string& smallName);
 
-    return 0;
-}
+#endif // UTILS_H
 
