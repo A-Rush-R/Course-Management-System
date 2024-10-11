@@ -5,11 +5,23 @@ using namespace std;
 
 void Schedule::addCourse(const Course& course) {
     try {
-        int newTotalCredits = getTotalCredits() + course.getMinCredits();
-        checkGreaterThanZero(newTotalCredits, "Total Credits");
-        CourseContainer::addCourse(course);
-    } catch (const invalid_argument& e) {
-        cerr << "Error adding course to schedule: " << e.what() << endl;
+
+        checkGreaterThan(course.getMaxCredits(), course.getCredits(), "Max Credits", "Credits");
+        checkGreaterThan(course.getCredits(), course.getMinCredits(), "Credits", "Min Credits");
+
+        for ( Course c : courses) {
+            if (c.getName() == course.getName()) {
+                throw invalid_argument("Course already added");
+            }
+            else if ( c.clashesWith(course) ){
+                throw invalid_argument("Course time conflict");
+            }
+        }
+        
+        courses.push_back(course);
+    }
+    catch (const invalid_argument& e) {
+        cerr << "Error adding course: " << e.what() << endl;
     }
 }
 

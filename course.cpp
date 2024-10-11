@@ -47,3 +47,7 @@ Course Course::CourseBuilder::build() const {
 
     return Course(name, startTime, endTime, maxCredits, minCredits);
 }
+
+bool Course :: clashesWith(const Course& other) const {
+    return (startTime < other.endTime) && (endTime > other.startTime);
+}

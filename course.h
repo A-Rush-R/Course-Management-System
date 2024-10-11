@@ -12,11 +12,14 @@ public:
 	string getName() const { return name; }
     int getMinCredits() const { return minCredits; }
     int getMaxCredits() const { return maxCredits; }
+    int getCredits() const { return appliedCredits; }
     int getStartTime() const { return startTime; }
     int getEndTime() const { return endTime; }
     Course(string n, int start, int end, int maxC, int minC) 
         : name(n), startTime(start), endTime(end), maxCredits(maxC), minCredits(minC) {
     }
+    void setCredits(int _credits) { appliedCredits = _credits; }
+    bool clashesWith(const Course& other) const;
 
 private:
     string name;
@@ -24,6 +27,7 @@ private:
 	int endTime;
     int maxCredits;
 	int minCredits;
+    int appliedCredits;
 
     friend class CourseBuilder;
 };
