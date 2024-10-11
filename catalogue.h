@@ -1,18 +1,11 @@
 #ifndef CATALOGUE_H
 #define CATALOGUE_H
 
-#include <vector>
-#include "course.h"
-using namespace std;
-class Catalogue {
-public:
-    void addCourse(const Course& course);
-    void removeCourse(const string& courseName);
-    void listCourses() const;
-    Course* findCourse(const string& courseName);
+#include "course_container.h"
 
+class Catalogue : public CourseContainer {
 private:
-    vector<Course> courses;
+    void printAdditionalInfo() const override;
 };
 
 #endif

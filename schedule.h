@@ -1,19 +1,15 @@
 #ifndef SCHEDULE_H
 #define SCHEDULE_H
 
-#include <vector>
-#include "course.h"
-using namespace std;
+#include "course_container.h"
 
-class Schedule {
+class Schedule : public CourseContainer {
 public:
-    void addCourse(const Course& course);
-    void removeCourse(const string& courseName);
-    void listCourses() const;
+    void addCourse(const Course& course) override;
     int getTotalCredits() const;
 
 private:
-    vector<Course> courses;
+    void printAdditionalInfo() const override;
 };
 
-#endif 
+#endif
