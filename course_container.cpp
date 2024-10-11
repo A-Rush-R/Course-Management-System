@@ -44,42 +44,46 @@ Course* CourseContainer::findCourse(const string& courseName) {
 }
 
 void CourseContainer::printHeader() {
+    cout << left; 
     for (const auto& column : columns) {
         switch (column) {
             case CourseColumn::NAME:
-                cout << setw(30) << "Course Name" << endl;
+                cout << setw(30) << "Course Name" ;
                 break;
             case CourseColumn::CREDITS:
-                cout << setw(20) << "Credits" << endl;
+                cout << setw(20) << "Credits" ;
                 break;
             case CourseColumn::TIME:
-                cout << setw(20) << "Time" << endl;
+                cout << setw(20) << "Time" ;
                 break;
             case CourseColumn::APPLIED_CREDITS:
-                cout << setw(20) << "Credits" << endl;
+                cout << setw(20) << "Credits" ;
                 break;
         }
     }
+    cout << endl;
 }
 
 void CourseContainer::printCourses() {
 
     for ( auto course : courses) {
+        cout << left;
         for (const auto& column : columns) {
             switch (column) {
                 case CourseColumn::NAME:
-                    cout << setw(30) << course.getName() << endl;
+                    cout << setw(30) << course.getName();
                     break;
                 case CourseColumn::CREDITS:
-                    cout << setw(20) << (to_string(course.getMinCredits()) + "-" + to_string(course.getMaxCredits())) << endl;
+                    cout << setw(20) << (to_string(course.getMinCredits()) + "-" + to_string(course.getMaxCredits())) ;
                     break;
                 case CourseColumn::TIME:
-                    cout << setw(20) << (convertTo12Hour(course.getStartTime()) + "-" + convertTo12Hour(course.getEndTime())) << endl;
+                    cout << setw(20) << (convertTo12Hour(course.getStartTime()) + "-" + convertTo12Hour(course.getEndTime())) ;
                     break;
                 case CourseColumn::APPLIED_CREDITS:
-                    cout << setw(20) << to_string(course.getCredits()) << endl;
+                    cout << setw(20) << to_string(course.getCredits()) ;
                     break;
             }
         }
+        cout << endl;
     }
 }
